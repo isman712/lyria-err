@@ -38,10 +38,8 @@ function configureReact(app, dir) {
 
       res.renderReact = function (filename, props) {
         const jsxFile = findJSXFile(jsxFiles, filename);
-        if (!jsxFile) {
-          res.status(404).send(`File ${filename} not found.`);
-          return;
-        }
+        if (!jsxFile)
+          return res.status(404).send(`File ${filename} not found.`);
 
         const filePath = path.join(__dirname, "../../../", dir, jsxFile);
         const Component = require(filePath).default;
