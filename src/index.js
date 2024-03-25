@@ -51,7 +51,7 @@ function configureReact(app, dir) {
         );
 
         res.setHeader("Content-Type", "text/html");
-        htmlString.pipe(res);
+        res.send(htmlString);
       };
 
       next();
